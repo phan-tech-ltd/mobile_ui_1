@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_ui_1/src/pages/widgets/history_widget.dart';
 
 class BalanceTab extends StatelessWidget {
   const BalanceTab({super.key});
@@ -54,6 +55,14 @@ class BalanceTab extends StatelessWidget {
           ),
 
           // history
+          const Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Align(alignment: Alignment.topLeft, child: Text('Transaction history', style: TextStyle(color: Colors.grey),)),
+          ),
+
+          const Expanded(
+            child: HistoryWidget(),
+          ),
           
         ],
       );
