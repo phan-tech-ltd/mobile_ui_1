@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_ui_1/src/pages/balance_tab.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -7,7 +8,8 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
+  late final TabController _tabController;
 
   int _currentTab = 0;
 
@@ -42,6 +44,18 @@ class _HomePageState extends State<HomePage> {
   void onBottomNavTap(int index){
     setState(() {
       _currentTab = index;
+      _tabController.index = index;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: _bottomNavItems.length, vsync: this, initialIndex: _currentTab);
+    _tabController.addListener(() {
+      setState(() {
+        _currentTab = _tabController.index;
+      });
     });
   }
 
@@ -63,6 +77,16 @@ class _HomePageState extends State<HomePage> {
             ),
         ],
       ),
+      body: TabBarView(
+        controller: _tabController,
+        children: const [
+          BalanceTab(),
+          BalanceTab(),
+          BalanceTab(),
+          BalanceTab(),
+          BalanceTab(),
+        ],
+      )
     );
   }
 }
