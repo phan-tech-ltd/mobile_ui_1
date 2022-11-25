@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_ui_1/src/pages/balance_tab.dart';
+import 'package:mobile_ui_1/src/pages/pay_tab.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -81,7 +82,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         controller: _tabController,
         children: const [
           BalanceTab(),
-          BalanceTab(),
+          PayTab(),
           BalanceTab(),
           BalanceTab(),
           BalanceTab(),
