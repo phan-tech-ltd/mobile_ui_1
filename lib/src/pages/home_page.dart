@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_ui_1/src/pages/balance_tab.dart';
+import 'package:mobile_ui_1/src/pages/history_tab.dart';
 import 'package:mobile_ui_1/src/pages/pay_tab.dart';
 
 class HomePage extends StatefulWidget {
@@ -84,7 +85,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           BalanceTab(),
           PayTab(),
           BalanceTab(),
-          BalanceTab(),
+          HistoryTab(),
           BalanceTab(),
         ],
       )
